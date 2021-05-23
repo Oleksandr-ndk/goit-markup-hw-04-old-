@@ -140,13 +140,13 @@ a {
   color: var(--paragraph-text-color);
 }
 
-.mail {
+.envelope {
   width: 16px;
   height: 12px;
   margin-right: 10px;
 }
 
-.tel {
+.smartphone {
   width: 10px;
   height: 16px;
   margin-right: 10px;
@@ -163,10 +163,7 @@ a {
   color: var(--accent-color);
 }
 
-.header-contacts .item:hover,
-.header-contacts .item:focus {
-  fill: var(--accent-color);
-}
+
 
 /* Hero */
 
