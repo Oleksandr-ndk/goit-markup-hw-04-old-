@@ -124,11 +124,27 @@ a {
 }
 
 .nav-item {
+  position: relative;
   color: var(--primary-text-color);
+
+  transition: color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item.current {
   color: var(--accent-color);
+}
+
+.nav-item.current::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  top: 45px;
+  height: 4px;
+
+  background: var(--accent-color);
+  border-radius: 2px;
 }
 
 .nav-item:hover,
@@ -140,6 +156,9 @@ a {
   display: flex;
   align-items: center;
   color: var(--paragraph-text-color);
+
+  transition: color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .envelope {
@@ -159,7 +178,7 @@ a {
 .head-contact:hover,
 .head-contact:focus {
   color: var(--accent-color);
-  fill: var(--accent-color);
+  fill: currentColor;
 }
 
 
@@ -359,6 +378,9 @@ padding: 30px;
   height: 44px;
   border-radius: 50%;
   background-color: var(--primary-bg-color);
+
+  transition: background-color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -395,6 +417,9 @@ padding: 30px;
   border: 1px solid var(--primary-icon-color);
   box-sizing: border-box;
   border-radius: 4px;
+
+  transition: border-color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -416,6 +441,9 @@ padding: 30px;
   height: 60px;
 
   fill: var(--primary-icon-color);
+
+  transition: fill 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Footer */
@@ -456,6 +484,9 @@ padding: 30px;
 
 .phis-address {
   color: var(--primary-bg-color);
+
+  transition: color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .phis-address:hover,
@@ -465,6 +496,9 @@ padding: 30px;
 
 .footer-contact {
   color: var(--footer-contact-color);
+
+  transition: color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contact:hover,
@@ -515,6 +549,9 @@ padding: 30px;
   width: 20px;
   height: 20px;
   fill: var(--primary-icon-color);
+
+  transition: fill 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-linkbox .social-icon {
@@ -539,13 +576,17 @@ padding: 30px;
 
 .button-title {
   color: var(--primary-text-color);
-  background: var(--background-button-color);
+  background-color: var(--background-button-color);
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
   letter-spacing: 0.03em;
+
+  
+  transition: color 250ms linear, background-color 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-filter .filter-item:not(:last-child) {
@@ -600,4 +641,94 @@ padding: 30px;
   padding: 20px 24px;
   border: 1px solid #eeeeee;
   border-top: 0;
+}
+
+.card-items-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background: rgba(33, 150, 243, 0.9);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+
+  letter-spacing: 0.03em;
+
+  color: var(--primary-bg-color);
+
+  transform: translateY(100%);
+  transition: transform 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-link:hover .card-overlay,
+.card-link:focus .card-overlay {
+  transform: translateY(0%);
+}
+
+/* Modal window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+
+  transition: opacity 300ms linear, visibility 300ms linear;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+
+  background: var(--primary-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.modal-close-btn-icon {
+  width: 11px;
+  height: 11px;
+
+  left: 22.22%;
+  right: 16.67%;
+  top: 16.67%;
+  bottom: 22.22%;
+
+  color: #000000;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
