@@ -137,18 +137,16 @@ a {
 }
 
 .head-contact {
+  display: flex;
+  align-items: center;
   color: var(--paragraph-text-color);
 }
 
 .envelope {
-  width: 16px;
-  height: 12px;
   margin-right: 10px;
 }
 
 .smartphone {
-  width: 10px;
-  height: 16px;
   margin-right: 10px;
 }
 
@@ -161,6 +159,7 @@ a {
 .head-contact:hover,
 .head-contact:focus {
   color: var(--accent-color);
+  fill: var(--accent-color);
 }
 
 
@@ -349,6 +348,7 @@ padding: 30px;
 
 .team-linkbox {
   display: flex;
+  justify-content: center;
 }
 
 .social-link {
@@ -504,6 +504,7 @@ padding: 30px;
 
 .social-list {
   display: flex;
+  justify-content: center;
 }
 
 .social-list-item:not(:last-child) {
